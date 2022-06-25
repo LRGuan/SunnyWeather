@@ -42,7 +42,7 @@ class PlaceFragment:Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         val layoutManager = LinearLayoutManager(activity)
-        if (viewModel.isPlaceSaved()){
+        if (viewModel.isPlaceSaved() && activity is MainActivity){
             val place = viewModel.getSavedPlace()
             val intent = Intent(context, WeatherActivity::class.java).apply {
                 putExtra("location_lng", place.location.lng)
